@@ -1,0 +1,10 @@
+RewriteEngine on
+#toma la url /database/connection/ y abre el archivo /database/connection.php
+RewriteRule ^database/connection$ /database/connection.php [L]
+
+#De una terminacion html abre el archivo correspondiente PHP
+RewriteBase /
+RewriteCond %{THE_REQUEST} (.*)\.php
+RewriteRule ^(.*)\.php $1.html [R=301,L]
+RewriteCond %{THE_REQUEST} (.*)\.html
+RewriteRule ^(.*)\.html $1.php [L]
