@@ -5,7 +5,7 @@ include_once '../database/connection.php';
 echo("<br>$servername");
 
 $arr = [];
-$stmt = $my_Db_Connection->prepare("SELECT * FROM Students WHERE id <= ?");
+$stmt = $my_Db_Connection->prepare("SELECT * FROM users WHERE id <= ?");
 $stmt->execute([10]);
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $arr[] = $row;
