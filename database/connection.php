@@ -12,9 +12,13 @@ $dsn_Options = [
 // Create a new connection to the MySQL database using PDO, $my_Db_Connection is an object
 try { 
   $my_Db_Connection = new PDO($sql, $bdusername, $bdpassword, $dsn_Options);
-  echo "Connected successfully -";
-} catch (PDOException $error) {
-  echo 'Connection error: ' . $error->getMessage();
+  $arrayResult["resultUser"]["messageConnectionDb"] = "Connected successfully";
+  //$arrayResult = ["arr"]["messageConnectionDb"] = "Connected successfully";
+  //echo json_encode(array("connectionDb"=>"Connected successfully"));
+} catch (PDOException $error) { 
+	$arrayResult["resultUser"]["messageConnectionDb"] = 'Connection error: ' . $error->getMessage();
+	//$arrayResult = ["arr"]["messageConnectionDb"] = "Connection error:";
+  //echo json_encode(array("connectionDb"=>'Connection error: ' . $error->getMessage()));
 }
 
 
