@@ -15,7 +15,7 @@ jQuery(function(){
 		            var resultq2 = data_array["resultUser"]["messageQuery"];
 		            if(resultq)
 		            {
-			            jQuery(".message-form").html("Usuario Creado");
+			            jQuery(".message-form").html(resultq2);
 			            clearForm();
 			            messageShow = true;
 		            }
@@ -24,7 +24,7 @@ jQuery(function(){
 			            jQuery(".message-form").html(resultq2);
 			            messageShow = true;
 		            }
-		            console.log("resultq = "+resultq+" = "+resultq2);
+		            //console.log("resultq = "+resultq+" = "+resultq2);
 	            }            
 	        });
 	    }

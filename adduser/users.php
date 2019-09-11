@@ -1,12 +1,14 @@
 <?php
 echo("<br>add user");
 include_once '../database/connection.php';
+include_once '../config/session.php';
 
-echo("<br>$servername");
 
 $arr = [];
-$stmt = $my_Db_Connection->prepare("SELECT * FROM users WHERE id <= ?");
-$stmt->execute([10]);
+$stmt = $my_Db_Connection->prepare("SELECT * FROM users WHERE id = :userid");
+$stmt->bindValue(':userid', $userId);
+
+$stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $arr[] = $row;
 }

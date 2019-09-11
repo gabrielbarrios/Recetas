@@ -1,5 +1,6 @@
 <?php
 include_once '../database/connection.php';
+include_once '../library/library_sql.php';
 include_once '../functions/sql_user.php';
 $nickname = $_REQUEST["nickname"];
 $loginpass = $_REQUEST["loginpass"];
@@ -21,37 +22,14 @@ $userVar = [
 
 $existUser = checkExistuser($userVar, $my_Db_Connection);
 
-//echo("hello world");
-
-/*
-$arrayResult = array(
-    "multi" => array(
-         "dimensional" => "foo"
-    )
-);
-*/
-/*
-echo("<pre>");
-	print_r($arrayResult);
-echo("</pre>");
-*/
-/*
-$arrayResult = array(
-	"resultUser" => array(
-		"success" => true,
-		"messageQuery" => "hello world"
-	)
-);
-*/
-
-
 if(!$existUser["username"] && !$existUser["email"])
 {
 	$messageQuery = addUser($userVar, $my_Db_Connection);
 	if($messageQuery)
-		$arrayResult["resultUser"]["success"] = "Success";
+		$arrayResult["resultUser"]["success"] = "Usuario Agregado";
 	else
 		$arrayResult["resultUser"]["success"] = "Fail";
+	$messageQuery = $arrayResult["resultUser"]["success"];
 }
 else{
 	if($existUser["username"])
