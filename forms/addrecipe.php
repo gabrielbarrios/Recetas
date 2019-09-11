@@ -1,6 +1,6 @@
 <?php 
 	//Form Add user
-	include_once '../config/session.php';
+	include_once '../functions/session_user.php';
 
 	echo("<br>userId = $userId");
 ?>
